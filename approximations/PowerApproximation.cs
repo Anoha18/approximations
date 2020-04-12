@@ -3,42 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms;
 using System.Drawing;
 
 namespace approximations
 {
-    class LinearApproximation
+    class PowerApproximation
     {
         private double _a;
         private double _b;
         private Chart _chart;
 
-        public LinearApproximation(Chart chart)
+        public PowerApproximation(Chart chart)
         {
             this._chart = chart;
         }
 
-        public bool Сalculation(ref double[,] tableData, int lengthMas) // вычисление линейной аппроксимации y = a*x - b
+        public bool Calculation(ref double[,] tableData, int lengthMas) // Функция вычисления 
         {
-            double sumxy = 0;
-            double sumx = 0;
-            double sumx2 = 0;
-            double sumy = 0;
+            double sumLNy = 0;
+            double sumLNx2 = 0;
+            double sumLNyLNx = 0;
+            double sumLNx = 0;
 
             try
             {
                 for (int i = 0; i < lengthMas; ++i)
                 {
-                    sumx += tableData[0, i];
-                    sumy += tableData[1, i];
-                    sumx2 += tableData[0, i] * tableData[0, i];
-                    sumxy += tableData[0, i] * tableData[1, i];
+                    sumLNx += Math.Log(tableData[0, i]);
+                    sumLNx2 += Math.Log(tableData[0, i]) * Math.Log(tableData[0, i]);
+                    sumLNy += Math.Log(tableData[1, i]);
+                    sumLNyLNx += Math.Log(tableData[0, i]) * Math.Log(tableData[1, i]);
                 }
 
-                this._a = (lengthMas * sumxy - (sumx * sumy)) / (lengthMas * sumx2 - sumx * sumx); // коэф. а
-                this._b = (sumy - this._a * sumx) / lengthMas; // коэф. б
+                this._a = (sumLNy * sumLNx2 - sumLNyLNx * sumLNx) / (lengthMas * sumLNx2 - sumLNx * sumLNx);
+                this._a = Math.Exp(this._a);
+                this._b = (lengthMas * sumLNyLNx - sumLNy * sumLNx) / (lengthMas * sumLNx2 - sumLNx * sumLNx);
             }
             catch (Exception e)
             {
@@ -46,16 +47,12 @@ namespace approximations
                 return false;
             }
 
-            DrawLineFunc(this._a, this._b, lengthMas, ref tableData); // рисуем график с полученными результатами
+            DrawLineFunc(ref tableData, lengthMas);
 
             return true;
         }
 
-        public double getA() { return this._a; }
-
-        public double getB() { return this._b; }
-
-        private void DrawLineFunc(double a, double b, int lengthMas, ref double[,] tableData)
+        private void DrawLineFunc(ref double[,] tableData, int lengthMas) // ф-ия  рисования результатов на графике
         {
             // рисуем график с полученными коэф
             double[] Y = new double[lengthMas];
@@ -64,16 +61,16 @@ namespace approximations
             for (int i = 0; i < lengthMas; i++)
             {
                 X[i] = tableData[0, i];
-                Y[i] = a * tableData[0, i] - b;
+                Y[i] = this._a * Math.Pow(tableData[0, i], this._b);
             }
 
             bool isSeries = false;
             int index = 0;
 
-            // проверка, есть ли на графике легенда с линейной аппроксимацией
+            // проверка, есть ли на графике легенда с Степенной аппроксимацией
             foreach (Series item in this._chart.Series)
             {
-                if (item.Name == "Линейная аппроксимация")
+                if (item.Name == "Степенная аппроксимация")
                 {
                     isSeries = true;
 
@@ -84,10 +81,10 @@ namespace approximations
 
             if (!isSeries)
             {
-                this._chart.Series.Add("Линейная аппроксимация");
+                this._chart.Series.Add("Степенная аппроксимация");
                 this._chart.Series[this._chart.Series.Count - 1].ChartType = SeriesChartType.Line;
                 this._chart.Series[this._chart.Series.Count - 1].BorderWidth = 4;
-                this._chart.Series[this._chart.Series.Count - 1].Color = Color.Blue;
+                this._chart.Series[this._chart.Series.Count - 1].Color = Color.Yellow;
                 this._chart.Series[this._chart.Series.Count - 1].Points.DataBindXY(X, Y); // рисуем график
 
                 return;
@@ -99,5 +96,8 @@ namespace approximations
                 return;
             }
         }
+        public double getA() { return this._a; }
+
+        public double getB() { return this._b; }
     }
 }

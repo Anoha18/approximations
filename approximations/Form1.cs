@@ -16,8 +16,8 @@ namespace approximations
         // Начальные значения, взятые из таблицы
         private double[,] tableData =
         {
-            { 0.2, 0.3, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8, 3.9 },
-            { 0.1, 0.2, 0.1, 0.2, 0.3, 0.2, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.3, 0.4, 0.5, 0.4, 0.7, 0.8, 1.0 }
+            { 0.2, 0.3, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8, 3.9 }, // x
+            { 0.1, 0.2, 0.1, 0.2, 0.3, 0.2, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.3, 0.4, 0.5, 0.4, 0.7, 0.8, 1.0 } // y
         };
 
         const int lengthMas = 20;
@@ -91,18 +91,41 @@ namespace approximations
         private void button1_Click(object sender, EventArgs e)
         {
             calculationLinearApproximation();
+            calculationExponentialApproximation();
+            calculationPowerApproximation();
         }
 
         private void calculationLinearApproximation()
         {
             LinearApproximation linearApproximation = new LinearApproximation(chart1); // переменная вычилсения линейной аппроксимации
-            bool result = linearApproximation.Сalculation(ref tableData, lengthMas); // вызов функции для вычилсения
             
-            if (result)
+            if (linearApproximation.Сalculation(ref tableData, lengthMas)) // вычисление линейной аппроксимации
             {
                 linearResultA.Text = linearApproximation.getA().ToString();
                 linearResultB.Text = linearApproximation.getB().ToString();
             } 
+        }
+
+        private void calculationExponentialApproximation()
+        {
+            ExponentialApproximation exponentialApproximation = new ExponentialApproximation(chart1);
+
+            if (exponentialApproximation.Calculation(ref tableData, lengthMas)) // вычисление экспоненциальной аппроксимации
+            {
+                expResultA.Text = exponentialApproximation.getA().ToString();
+                expResultB.Text = exponentialApproximation.getB().ToString();
+            }
+        }
+
+        private void calculationPowerApproximation()
+        {
+            PowerApproximation powerApproximation = new PowerApproximation(chart1);
+
+            if (powerApproximation.Calculation(ref tableData, lengthMas))
+            {
+                powerResultA.Text = powerApproximation.getA().ToString();
+                powerResultB.Text = powerApproximation.getB().ToString();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
