@@ -20,7 +20,11 @@ namespace approximations
             { 0.1, 0.2, 0.1, 0.2, 0.3, 0.2, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.3, 0.4, 0.5, 0.4, 0.7, 0.8, 1.0 } // y
         };
 
-        const int lengthMas = 20;
+        private const int lengthMas = 20;
+        private int powerPolinom = 3;
+        PowerPolinomForm powerPolinomForm = new PowerPolinomForm();
+        KoefPolinomForm koefPolinomForm = new KoefPolinomForm();
+        PolinomApproximation polinomApproximation;
 
         public Form1()
         {
@@ -131,7 +135,7 @@ namespace approximations
 
         private void calculationPolinomApproximation()
         {
-            PolinomApproximation polinomApproximation = new PolinomApproximation(chart1, 4);
+            polinomApproximation = new PolinomApproximation(chart1, this.powerPolinom);
 
             polinomApproximation.Calculation(ref tableData, lengthMas);
         }
@@ -139,6 +143,25 @@ namespace approximations
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            powerPolinomForm.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (!this.polinomApproximation.isSolved)
+            {
+                MessageBox.Show("Коэффициенты не рассчитаны", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            koefPolinomForm.ShowDialog();
         }
     }
 }

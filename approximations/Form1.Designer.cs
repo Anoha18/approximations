@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -49,11 +49,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,10 +87,10 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(406, 12);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(1362, 923);
@@ -230,64 +228,46 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(12, 686);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(249, 17);
+            this.label11.Size = new System.Drawing.Size(195, 17);
             this.label11.TabIndex = 14;
-            this.label11.Text = "Экспоненциальная аппроксимация: ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(68, 839);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 17);
-            this.label4.TabIndex = 23;
-            this.label4.Text = " - ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(68, 809);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 17);
-            this.label5.TabIndex = 22;
-            this.label5.Text = " - ";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(29, 839);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(33, 17);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "B = ";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(29, 809);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 17);
-            this.label13.TabIndex = 20;
-            this.label13.Text = "A = ";
+            this.label11.Text = "Степенная аппроксимация: ";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(9, 783);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(249, 17);
+            this.label14.Size = new System.Drawing.Size(268, 17);
             this.label14.TabIndex = 19;
-            this.label14.Text = "Экспоненциальная аппроксимация: ";
+            this.label14.Text = "Аппроксимация полиномом n степени: ";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(15, 818);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(137, 38);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "Коэффициенты";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(158, 818);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(122, 38);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "Степень";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1792, 953);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.powerResultB);
             this.Controls.Add(this.powerResultA);
@@ -311,7 +291,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Аппроксимация";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -339,11 +319,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 
