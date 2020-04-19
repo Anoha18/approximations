@@ -55,6 +55,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="LinearApproximation.cs" />
+    <Compile Include="PolinomApproximation.cs" />
     <Compile Include="PowerApproximation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

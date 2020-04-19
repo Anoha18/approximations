@@ -93,6 +93,7 @@ namespace approximations
             calculationLinearApproximation();
             calculationExponentialApproximation();
             calculationPowerApproximation();
+            calculationPolinomApproximation();
         }
 
         private void calculationLinearApproximation()
@@ -126,6 +127,13 @@ namespace approximations
                 powerResultA.Text = powerApproximation.getA().ToString();
                 powerResultB.Text = powerApproximation.getB().ToString();
             }
+        }
+
+        private void calculationPolinomApproximation()
+        {
+            PolinomApproximation polinomApproximation = new PolinomApproximation(chart1, 4);
+
+            polinomApproximation.Calculation(ref tableData, lengthMas);
         }
 
         private void button2_Click(object sender, EventArgs e)
