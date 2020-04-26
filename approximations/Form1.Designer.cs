@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -52,6 +52,11 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.logResB = new System.Windows.Forms.Label();
+            this.logResA = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +72,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 882);
+            this.button1.Location = new System.Drawing.Point(15, 944);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(163, 53);
             this.button1.TabIndex = 1;
@@ -77,7 +82,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(207, 882);
+            this.button2.Location = new System.Drawing.Point(207, 944);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(163, 53);
             this.button2.TabIndex = 2;
@@ -87,13 +92,13 @@
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(406, 12);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(418, 12);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(1362, 923);
+            this.chart1.Size = new System.Drawing.Size(1362, 985);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";
             // 
@@ -235,7 +240,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 783);
+            this.label14.Location = new System.Drawing.Point(9, 852);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(268, 17);
             this.label14.TabIndex = 19;
@@ -243,7 +248,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(15, 818);
+            this.button3.Location = new System.Drawing.Point(15, 887);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(137, 38);
             this.button3.TabIndex = 20;
@@ -253,7 +258,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(158, 818);
+            this.button4.Location = new System.Drawing.Point(158, 887);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(122, 38);
             this.button4.TabIndex = 21;
@@ -261,11 +266,61 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // logResB
+            // 
+            this.logResB.AutoSize = true;
+            this.logResB.Location = new System.Drawing.Point(71, 825);
+            this.logResB.Name = "logResB";
+            this.logResB.Size = new System.Drawing.Size(21, 17);
+            this.logResB.TabIndex = 26;
+            this.logResB.Text = " - ";
+            // 
+            // logResA
+            // 
+            this.logResA.AutoSize = true;
+            this.logResA.Location = new System.Drawing.Point(71, 795);
+            this.logResA.Name = "logResA";
+            this.logResA.Size = new System.Drawing.Size(21, 17);
+            this.logResA.TabIndex = 25;
+            this.logResA.Text = " - ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(32, 825);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 17);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "B = ";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(32, 795);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 17);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "A = ";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(12, 769);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(244, 17);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Логарифмическая аппроксимация: ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1792, 953);
+            this.ClientSize = new System.Drawing.Size(1792, 1009);
+            this.Controls.Add(this.logResB);
+            this.Controls.Add(this.logResA);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label14);
@@ -288,10 +343,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аппроксимация";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -322,6 +377,11 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label logResB;
+        private System.Windows.Forms.Label logResA;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
     }
 }
 

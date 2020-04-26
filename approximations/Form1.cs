@@ -98,6 +98,7 @@ namespace approximations
             calculationExponentialApproximation();
             calculationPowerApproximation();
             calculationPolinomApproximation();
+            calculationLogarithmicApproximation();
         }
 
         private void calculationLinearApproximation()
@@ -140,6 +141,17 @@ namespace approximations
             polinomApproximation.Calculation(ref tableData, lengthMas);
         }
 
+        private void calculationLogarithmicApproximation()
+        {
+            LogarithmicApproximation logarithmicApproximation = new LogarithmicApproximation(chart1);
+
+            if (logarithmicApproximation.Сalculation(ref tableData, lengthMas))
+            {
+                logResA.Text = logarithmicApproximation.getA().ToString();
+                logResB.Text = logarithmicApproximation.getB().ToString();
+            }
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
@@ -147,13 +159,11 @@ namespace approximations
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //this.Hide();
             powerPolinomForm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
             if (!this.polinomApproximation.isSolved)
             {
                 MessageBox.Show("Коэффициенты не рассчитаны", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -162,6 +172,11 @@ namespace approximations
             }
 
             koefPolinomForm.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }
