@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -57,6 +57,23 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.deviationLinear = new System.Windows.Forms.Label();
+            this.deviationExp = new System.Windows.Forms.Label();
+            this.deviationPower = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.deviationLog = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.deviationPolinom = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.polinomPower = new System.Windows.Forms.Label();
+            this.checkLinear = new System.Windows.Forms.CheckBox();
+            this.checkExp = new System.Windows.Forms.CheckBox();
+            this.checkPower = new System.Windows.Forms.CheckBox();
+            this.checkLog = new System.Windows.Forms.CheckBox();
+            this.checkPolinom = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +84,7 @@
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.MultiColumn = true;
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(358, 484);
+            this.listBox1.Size = new System.Drawing.Size(358, 356);
             this.listBox1.TabIndex = 0;
             // 
             // button1
@@ -92,10 +109,10 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(418, 12);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(1362, 985);
@@ -105,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 515);
+            this.label1.Location = new System.Drawing.Point(12, 380);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(189, 17);
             this.label1.TabIndex = 4;
@@ -114,7 +131,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 541);
+            this.label2.Location = new System.Drawing.Point(32, 397);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 17);
             this.label2.TabIndex = 5;
@@ -123,7 +140,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 571);
+            this.label3.Location = new System.Drawing.Point(32, 414);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 17);
             this.label3.TabIndex = 6;
@@ -132,7 +149,7 @@
             // linearResultA
             // 
             this.linearResultA.AutoSize = true;
-            this.linearResultA.Location = new System.Drawing.Point(71, 541);
+            this.linearResultA.Location = new System.Drawing.Point(71, 397);
             this.linearResultA.Name = "linearResultA";
             this.linearResultA.Size = new System.Drawing.Size(21, 17);
             this.linearResultA.TabIndex = 7;
@@ -141,7 +158,7 @@
             // linearResultB
             // 
             this.linearResultB.AutoSize = true;
-            this.linearResultB.Location = new System.Drawing.Point(71, 571);
+            this.linearResultB.Location = new System.Drawing.Point(71, 414);
             this.linearResultB.Name = "linearResultB";
             this.linearResultB.Size = new System.Drawing.Size(21, 17);
             this.linearResultB.TabIndex = 8;
@@ -150,7 +167,7 @@
             // expResultB
             // 
             this.expResultB.AutoSize = true;
-            this.expResultB.Location = new System.Drawing.Point(71, 657);
+            this.expResultB.Location = new System.Drawing.Point(68, 497);
             this.expResultB.Name = "expResultB";
             this.expResultB.Size = new System.Drawing.Size(21, 17);
             this.expResultB.TabIndex = 13;
@@ -159,7 +176,7 @@
             // expResultA
             // 
             this.expResultA.AutoSize = true;
-            this.expResultA.Location = new System.Drawing.Point(71, 627);
+            this.expResultA.Location = new System.Drawing.Point(68, 480);
             this.expResultA.Name = "expResultA";
             this.expResultA.Size = new System.Drawing.Size(21, 17);
             this.expResultA.TabIndex = 12;
@@ -168,7 +185,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 657);
+            this.label6.Location = new System.Drawing.Point(29, 497);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 17);
             this.label6.TabIndex = 11;
@@ -177,7 +194,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 627);
+            this.label7.Location = new System.Drawing.Point(29, 480);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(33, 17);
             this.label7.TabIndex = 10;
@@ -186,7 +203,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 601);
+            this.label8.Location = new System.Drawing.Point(9, 463);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(249, 17);
             this.label8.TabIndex = 9;
@@ -195,7 +212,7 @@
             // powerResultB
             // 
             this.powerResultB.AutoSize = true;
-            this.powerResultB.Location = new System.Drawing.Point(71, 742);
+            this.powerResultB.Location = new System.Drawing.Point(71, 580);
             this.powerResultB.Name = "powerResultB";
             this.powerResultB.Size = new System.Drawing.Size(21, 17);
             this.powerResultB.TabIndex = 18;
@@ -204,7 +221,7 @@
             // powerResultA
             // 
             this.powerResultA.AutoSize = true;
-            this.powerResultA.Location = new System.Drawing.Point(71, 712);
+            this.powerResultA.Location = new System.Drawing.Point(71, 563);
             this.powerResultA.Name = "powerResultA";
             this.powerResultA.Size = new System.Drawing.Size(21, 17);
             this.powerResultA.TabIndex = 17;
@@ -213,7 +230,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 742);
+            this.label9.Location = new System.Drawing.Point(32, 580);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(33, 17);
             this.label9.TabIndex = 16;
@@ -222,7 +239,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(32, 712);
+            this.label10.Location = new System.Drawing.Point(32, 563);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 17);
             this.label10.TabIndex = 15;
@@ -231,7 +248,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 686);
+            this.label11.Location = new System.Drawing.Point(12, 546);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(195, 17);
             this.label11.TabIndex = 14;
@@ -240,7 +257,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 852);
+            this.label14.Location = new System.Drawing.Point(9, 707);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(268, 17);
             this.label14.TabIndex = 19;
@@ -248,7 +265,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(15, 887);
+            this.button3.Location = new System.Drawing.Point(12, 771);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(137, 38);
             this.button3.TabIndex = 20;
@@ -258,7 +275,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(158, 887);
+            this.button4.Location = new System.Drawing.Point(155, 771);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(122, 38);
             this.button4.TabIndex = 21;
@@ -269,7 +286,7 @@
             // logResB
             // 
             this.logResB.AutoSize = true;
-            this.logResB.Location = new System.Drawing.Point(71, 825);
+            this.logResB.Location = new System.Drawing.Point(68, 660);
             this.logResB.Name = "logResB";
             this.logResB.Size = new System.Drawing.Size(21, 17);
             this.logResB.TabIndex = 26;
@@ -278,7 +295,7 @@
             // logResA
             // 
             this.logResA.AutoSize = true;
-            this.logResA.Location = new System.Drawing.Point(71, 795);
+            this.logResA.Location = new System.Drawing.Point(68, 643);
             this.logResA.Name = "logResA";
             this.logResA.Size = new System.Drawing.Size(21, 17);
             this.logResA.TabIndex = 25;
@@ -287,7 +304,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(32, 825);
+            this.label12.Location = new System.Drawing.Point(29, 660);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(33, 17);
             this.label12.TabIndex = 24;
@@ -296,7 +313,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(32, 795);
+            this.label13.Location = new System.Drawing.Point(29, 643);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(33, 17);
             this.label13.TabIndex = 23;
@@ -305,17 +322,187 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(12, 769);
+            this.label15.Location = new System.Drawing.Point(9, 626);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(244, 17);
             this.label15.TabIndex = 22;
             this.label15.Text = "Логарифмическая аппроксимация: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(32, 431);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(149, 17);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Ср. кв. отклонение = ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(29, 514);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(149, 17);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Ср. кв. отклонение = ";
+            // 
+            // deviationLinear
+            // 
+            this.deviationLinear.AutoSize = true;
+            this.deviationLinear.Location = new System.Drawing.Point(187, 431);
+            this.deviationLinear.Name = "deviationLinear";
+            this.deviationLinear.Size = new System.Drawing.Size(13, 17);
+            this.deviationLinear.TabIndex = 29;
+            this.deviationLinear.Text = "-";
+            // 
+            // deviationExp
+            // 
+            this.deviationExp.AutoSize = true;
+            this.deviationExp.Location = new System.Drawing.Point(181, 514);
+            this.deviationExp.Name = "deviationExp";
+            this.deviationExp.Size = new System.Drawing.Size(13, 17);
+            this.deviationExp.TabIndex = 30;
+            this.deviationExp.Text = "-";
+            // 
+            // deviationPower
+            // 
+            this.deviationPower.AutoSize = true;
+            this.deviationPower.Location = new System.Drawing.Point(184, 597);
+            this.deviationPower.Name = "deviationPower";
+            this.deviationPower.Size = new System.Drawing.Size(13, 17);
+            this.deviationPower.TabIndex = 32;
+            this.deviationPower.Text = "-";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(29, 597);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(149, 17);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "Ср. кв. отклонение = ";
+            // 
+            // deviationLog
+            // 
+            this.deviationLog.AutoSize = true;
+            this.deviationLog.Location = new System.Drawing.Point(181, 677);
+            this.deviationLog.Name = "deviationLog";
+            this.deviationLog.Size = new System.Drawing.Size(13, 17);
+            this.deviationLog.TabIndex = 34;
+            this.deviationLog.Text = "-";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(26, 677);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(149, 17);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "Ср. кв. отклонение = ";
+            // 
+            // deviationPolinom
+            // 
+            this.deviationPolinom.AutoSize = true;
+            this.deviationPolinom.Location = new System.Drawing.Point(181, 724);
+            this.deviationPolinom.Name = "deviationPolinom";
+            this.deviationPolinom.Size = new System.Drawing.Size(13, 17);
+            this.deviationPolinom.TabIndex = 36;
+            this.deviationPolinom.Text = "-";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(26, 724);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(149, 17);
+            this.label19.TabIndex = 35;
+            this.label19.Text = "Ср. кв. отклонение = ";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(26, 741);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(148, 17);
+            this.label16.TabIndex = 37;
+            this.label16.Text = "Степень полинома = ";
+            // 
+            // polinomPower
+            // 
+            this.polinomPower.AutoSize = true;
+            this.polinomPower.Location = new System.Drawing.Point(180, 741);
+            this.polinomPower.Name = "polinomPower";
+            this.polinomPower.Size = new System.Drawing.Size(13, 17);
+            this.polinomPower.TabIndex = 38;
+            this.polinomPower.Text = "-";
+            // 
+            // checkLinear
+            // 
+            this.checkLinear.AutoSize = true;
+            this.checkLinear.Location = new System.Drawing.Point(207, 381);
+            this.checkLinear.Name = "checkLinear";
+            this.checkLinear.Size = new System.Drawing.Size(18, 17);
+            this.checkLinear.TabIndex = 39;
+            this.checkLinear.UseVisualStyleBackColor = true;
+            // 
+            // checkExp
+            // 
+            this.checkExp.AutoSize = true;
+            this.checkExp.Location = new System.Drawing.Point(264, 464);
+            this.checkExp.Name = "checkExp";
+            this.checkExp.Size = new System.Drawing.Size(18, 17);
+            this.checkExp.TabIndex = 40;
+            this.checkExp.UseVisualStyleBackColor = true;
+            // 
+            // checkPower
+            // 
+            this.checkPower.AutoSize = true;
+            this.checkPower.Location = new System.Drawing.Point(213, 547);
+            this.checkPower.Name = "checkPower";
+            this.checkPower.Size = new System.Drawing.Size(18, 17);
+            this.checkPower.TabIndex = 41;
+            this.checkPower.UseVisualStyleBackColor = true;
+            // 
+            // checkLog
+            // 
+            this.checkLog.AutoSize = true;
+            this.checkLog.Location = new System.Drawing.Point(259, 627);
+            this.checkLog.Name = "checkLog";
+            this.checkLog.Size = new System.Drawing.Size(18, 17);
+            this.checkLog.TabIndex = 42;
+            this.checkLog.UseVisualStyleBackColor = true;
+            // 
+            // checkPolinom
+            // 
+            this.checkPolinom.AutoSize = true;
+            this.checkPolinom.Location = new System.Drawing.Point(283, 708);
+            this.checkPolinom.Name = "checkPolinom";
+            this.checkPolinom.Size = new System.Drawing.Size(18, 17);
+            this.checkPolinom.TabIndex = 43;
+            this.checkPolinom.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1792, 1009);
+            this.Controls.Add(this.checkPolinom);
+            this.Controls.Add(this.checkLog);
+            this.Controls.Add(this.checkPower);
+            this.Controls.Add(this.checkExp);
+            this.Controls.Add(this.checkLinear);
+            this.Controls.Add(this.polinomPower);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.deviationPolinom);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.deviationLog);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.deviationPower);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.deviationExp);
+            this.Controls.Add(this.deviationLinear);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.logResB);
             this.Controls.Add(this.logResA);
             this.Controls.Add(this.label12);
@@ -343,6 +530,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аппроксимация";
@@ -382,6 +570,23 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label deviationLinear;
+        private System.Windows.Forms.Label deviationExp;
+        private System.Windows.Forms.Label deviationPower;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label deviationLog;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label deviationPolinom;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label polinomPower;
+        private System.Windows.Forms.CheckBox checkLinear;
+        private System.Windows.Forms.CheckBox checkExp;
+        private System.Windows.Forms.CheckBox checkPower;
+        private System.Windows.Forms.CheckBox checkLog;
+        private System.Windows.Forms.CheckBox checkPolinom;
     }
 }
 

@@ -15,7 +15,8 @@ namespace approximations
         private double _a;
         private double _b;
         private Chart _chart;
-      
+        private double _deviation;
+
         public ExponentialApproximation(Chart chart)
         {
             this._chart = chart;
@@ -51,6 +52,7 @@ namespace approximations
                 return false;
             }
 
+            Standardeviation(lengthMas, ref tableData);
             DrawLineFunc(ref tableData, lengthMas);
 
             return true;
@@ -104,5 +106,21 @@ namespace approximations
         public double getA() { return this._a; }
 
         public double getB() { return this._b; }
+
+        public double getDeviation() { return this._deviation; }
+
+        // расчет среднего квадратического отклонения
+        private void Standardeviation(int lengthMas, ref double[,] tableData)
+        {
+            this._deviation = 0;
+            for (int i = 0; i < lengthMas; ++i)
+            {
+                this._deviation += Math.Pow(tableData[1, i] - (this._a * Math.Exp(tableData[0, i] * this._b)), 2);
+            }
+
+            this._deviation = this._deviation / (lengthMas - 1);
+
+            this._deviation = Math.Sqrt(this._deviation);
+        }
     }
 }

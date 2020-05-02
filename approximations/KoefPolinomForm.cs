@@ -22,6 +22,24 @@ namespace approximations
         {
             this._koef = new double[koef.Length];
             this._koef = koef;
+            
+            ShowKoef();
+        }
+
+        private void ShowKoef()
+        {
+            listBox1.Items.Clear();
+            listBox1.Items.Add("Коэффициенты: ");
+
+            for (int i = 0; i < this._koef.Length; i++)
+            {
+                listBox1.Items.Add("A[" + i + "] = " + this._koef[i]);
+            }   
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

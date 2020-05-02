@@ -22,13 +22,12 @@ namespace approximations
 
         private const int lengthMas = 20;
         private int powerPolinom = 3;
-        PowerPolinomForm powerPolinomForm = new PowerPolinomForm();
-        KoefPolinomForm koefPolinomForm = new KoefPolinomForm();
         PolinomApproximation polinomApproximation;
 
         public Form1()
         {
             InitializeComponent();
+            polinomPower.Text = this.powerPolinom.ToString();
             OutTableData(); // вывод данных в листбокс
             DrawTableData(); // Вывод данных на график
         }
@@ -38,9 +37,16 @@ namespace approximations
             listBox1.Items.Clear();
             listBox1.Items.Add("Исходные данные: ");
 
-            foreach (double item in tableData)
+            char prefix = 'X';
+            for (int i = 0; i < 2; i++)
             {
-                listBox1.Items.Add(item);
+                listBox1.Items.Add("-----------------------------");
+                for (int j = 0; j < lengthMas; j++)
+                {
+                    listBox1.Items.Add(prefix.ToString() + '[' + (j + 1) + "] = " + tableData[i, j]);
+                }
+
+                prefix = 'Y';
             }
         }
 
@@ -103,53 +109,107 @@ namespace approximations
 
         private void calculationLinearApproximation()
         {
-            LinearApproximation linearApproximation = new LinearApproximation(chart1); // переменная вычилсения линейной аппроксимации
-            
-            if (linearApproximation.Сalculation(ref tableData, lengthMas)) // вычисление линейной аппроксимации
+            if (checkLinear.Checked)
             {
-                linearResultA.Text = linearApproximation.getA().ToString();
-                linearResultB.Text = linearApproximation.getB().ToString();
-            } 
+                LinearApproximation linearApproximation = new LinearApproximation(chart1); // переменная вычилсения линейной аппроксимации
+            
+                if (linearApproximation.Сalculation(ref tableData, lengthMas)) // вычисление линейной аппроксимации
+                {
+                    linearResultA.Text = linearApproximation.getA().ToString();
+                    linearResultB.Text = linearApproximation.getB().ToString();
+                    deviationLinear.Text = linearApproximation.getDeviation().ToString();
+                }
+
+                return;
+            }
+
+            linearResultA.Text = "-";
+            linearResultB.Text = "-";
+            deviationLinear.Text = "-";
+            DeleteSeries("Линейная аппроксимация");
         }
 
         private void calculationExponentialApproximation()
         {
-            ExponentialApproximation exponentialApproximation = new ExponentialApproximation(chart1);
-
-            if (exponentialApproximation.Calculation(ref tableData, lengthMas)) // вычисление экспоненциальной аппроксимации
+            if (checkExp.Checked)
             {
-                expResultA.Text = exponentialApproximation.getA().ToString();
-                expResultB.Text = exponentialApproximation.getB().ToString();
+                ExponentialApproximation exponentialApproximation = new ExponentialApproximation(chart1);
+
+                if (exponentialApproximation.Calculation(ref tableData, lengthMas)) // вычисление экспоненциальной аппроксимации
+                {
+                    expResultA.Text = exponentialApproximation.getA().ToString();
+                    expResultB.Text = exponentialApproximation.getB().ToString();
+                    deviationExp.Text = exponentialApproximation.getDeviation().ToString();
+                }
+
+                return;
             }
+
+            expResultA.Text = "-";
+            expResultB.Text = "-";
+            deviationExp.Text = "-";
+            DeleteSeries("Экспоненциальная аппроксимация");
         }
 
         private void calculationPowerApproximation()
         {
-            PowerApproximation powerApproximation = new PowerApproximation(chart1);
-
-            if (powerApproximation.Calculation(ref tableData, lengthMas))
+            if (checkPower.Checked)
             {
-                powerResultA.Text = powerApproximation.getA().ToString();
-                powerResultB.Text = powerApproximation.getB().ToString();
+                PowerApproximation powerApproximation = new PowerApproximation(chart1);
+
+                if (powerApproximation.Calculation(ref tableData, lengthMas))
+                {
+                    powerResultA.Text = powerApproximation.getA().ToString();
+                    powerResultB.Text = powerApproximation.getB().ToString();
+                    deviationPower.Text = powerApproximation.getDeviation().ToString();
+                }
+
+                return;
             }
+
+            powerResultA.Text = "-";
+            powerResultB.Text = "-";
+            deviationPower.Text = "-";
+
+            DeleteSeries("Степенная аппроксимация");
         }
 
         private void calculationPolinomApproximation()
         {
-            polinomApproximation = new PolinomApproximation(chart1, this.powerPolinom);
+            if (checkPolinom.Checked)
+            {
+                polinomApproximation = new PolinomApproximation(chart1, this.powerPolinom);
 
-            polinomApproximation.Calculation(ref tableData, lengthMas);
+                polinomApproximation.Calculation(ref tableData, lengthMas);
+                deviationPolinom.Text = polinomApproximation.getDeviation().ToString();
+
+                return;
+            }
+
+            deviationPolinom.Text = "-";
+            DeleteSeries("Аппроксимация полиномом");
         }
 
         private void calculationLogarithmicApproximation()
         {
-            LogarithmicApproximation logarithmicApproximation = new LogarithmicApproximation(chart1);
-
-            if (logarithmicApproximation.Сalculation(ref tableData, lengthMas))
+            if (checkLog.Checked)
             {
-                logResA.Text = logarithmicApproximation.getA().ToString();
-                logResB.Text = logarithmicApproximation.getB().ToString();
+                LogarithmicApproximation logarithmicApproximation = new LogarithmicApproximation(chart1);
+
+                if (logarithmicApproximation.Сalculation(ref tableData, lengthMas))
+                {
+                    logResA.Text = logarithmicApproximation.getA().ToString();
+                    logResB.Text = logarithmicApproximation.getB().ToString();
+                    deviationLog.Text = logarithmicApproximation.getDeviation().ToString();
+                }
+
+                return;
             }
+
+            logResA.Text = "-";
+            logResB.Text = "-";
+            deviationLog.Text = "-";
+            DeleteSeries("Логарифмическая аппроксимация");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -159,24 +219,66 @@ namespace approximations
 
         private void button4_Click(object sender, EventArgs e)
         {
-            powerPolinomForm.ShowDialog();
+            PowerPolinomForm powerPolinomForm = new PowerPolinomForm();
+            using (powerPolinomForm)
+            {
+                powerPolinomForm.setPower(this.powerPolinom);
+                DialogResult result = powerPolinomForm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    this.powerPolinom = powerPolinomForm.Power;
+                    polinomPower.Text = this.powerPolinom.ToString();
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!this.polinomApproximation.isSolved)
+            KoefPolinomForm koefPolinomForm = new KoefPolinomForm();
+            if (this.polinomApproximation is null || !this.polinomApproximation.isSolved || !checkPolinom.Checked)
             {
                 MessageBox.Show("Коэффициенты не рассчитаны", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
 
+            koefPolinomForm.setKoef(this.polinomApproximation.getKoef());
             koefPolinomForm.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
+        }
+
+        public void setPowerPolinom(int power)
+        {
+            this.powerPolinom = power;
+        }
+
+        private void DeleteSeries(string seriesName)
+        {
+            bool isSeries = false;
+            Series series = new Series();
+            int index = 0;
+
+            foreach (Series item in chart1.Series)
+            {
+                if (item.Name == seriesName)
+                {
+                    isSeries = true;
+                    series = item;
+
+                    break;
+                }
+                index++;
+            }
+
+            if (isSeries)
+            {
+                chart1.Series.Remove(series);
+            }
         }
     }
 }

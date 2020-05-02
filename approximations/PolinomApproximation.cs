@@ -17,6 +17,7 @@ namespace approximations
         private double[] _koef; // коэф. при X
         private int _power; // степень полинома
         public bool isSolved = false;
+        private double _deviation;
 
         public PolinomApproximation(Chart chart, int power)
         {
@@ -75,7 +76,7 @@ namespace approximations
 
 
                 Gaus(); // вычилсение матрицы методом гаусса
-
+                Standardeviation(lengthMas, ref tableData); // расчет среднего квадратического отклонения
                 DrawLineFunc(ref tableData, lengthMas); // отрисовка функции на графике
 
                 this.isSolved = true;
@@ -223,6 +224,27 @@ namespace approximations
         public double[] getKoef()
         {
             return this._koef;
+        }
+
+        public double getDeviation() { return this._deviation; }
+
+        // расчет среднего квадратического отклонения
+        private void Standardeviation(int lengthMas, ref double[,] tableData)
+        {
+            this._deviation = 0;
+            for (int i = 0; i < lengthMas; ++i)
+            {
+                double sumKoef = 0;
+                for (int j = 0; j < this._power; ++j)
+                {
+                    sumKoef += this._koef[j] * Math.Pow(tableData[0, i], this._power - j - 1);
+                }
+                this._deviation += Math.Pow(tableData[1, i] - sumKoef, 2);
+            }
+
+            this._deviation = this._deviation / (lengthMas - 1);
+
+            this._deviation = Math.Sqrt(this._deviation);
         }
     }
 }
