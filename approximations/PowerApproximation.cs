@@ -15,6 +15,8 @@ namespace approximations
         private double _b;
         private Chart _chart;
         private double _deviation;
+        private double[,] resultPoint;
+        public bool isSolved = false;
 
         public PowerApproximation(Chart chart)
         {
@@ -50,9 +52,12 @@ namespace approximations
 
             Standardeviation(lengthMas, ref tableData);
             DrawLineFunc(ref tableData, lengthMas);
+            this.isSolved = true;
 
             return true;
         }
+
+        public ref double[,] getResultPoint() { return ref this.resultPoint; }
 
         private void DrawLineFunc(ref double[,] tableData, int lengthMas) // ф-ия  рисования результатов на графике
         {
@@ -64,6 +69,14 @@ namespace approximations
             {
                 X[i] = tableData[0, i];
                 Y[i] = this._a * Math.Pow(tableData[0, i], this._b);
+            }
+
+            this.resultPoint = new double[2, lengthMas];
+
+            for (int i = 0; i < lengthMas; i++)
+            {
+                this.resultPoint[0, i] = X[i];
+                this.resultPoint[1, i] = Y[i];
             }
 
             bool isSeries = false;

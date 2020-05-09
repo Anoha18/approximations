@@ -23,6 +23,10 @@ namespace approximations
         private const int lengthMas = 20;
         private int powerPolinom = 3;
         PolinomApproximation polinomApproximation;
+        LogarithmicApproximation logarithmicApproximation;
+        LinearApproximation linearApproximation;
+        ExponentialApproximation exponentialApproximation;
+        PowerApproximation powerApproximation;
 
         public Form1()
         {
@@ -111,7 +115,7 @@ namespace approximations
         {
             if (checkLinear.Checked)
             {
-                LinearApproximation linearApproximation = new LinearApproximation(chart1); // переменная вычилсения линейной аппроксимации
+                linearApproximation = new LinearApproximation(chart1); // переменная вычилсения линейной аппроксимации
             
                 if (linearApproximation.Сalculation(ref tableData, lengthMas)) // вычисление линейной аппроксимации
                 {
@@ -133,7 +137,7 @@ namespace approximations
         {
             if (checkExp.Checked)
             {
-                ExponentialApproximation exponentialApproximation = new ExponentialApproximation(chart1);
+                exponentialApproximation = new ExponentialApproximation(chart1);
 
                 if (exponentialApproximation.Calculation(ref tableData, lengthMas)) // вычисление экспоненциальной аппроксимации
                 {
@@ -155,7 +159,7 @@ namespace approximations
         {
             if (checkPower.Checked)
             {
-                PowerApproximation powerApproximation = new PowerApproximation(chart1);
+                powerApproximation = new PowerApproximation(chart1);
 
                 if (powerApproximation.Calculation(ref tableData, lengthMas))
                 {
@@ -194,7 +198,7 @@ namespace approximations
         {
             if (checkLog.Checked)
             {
-                LogarithmicApproximation logarithmicApproximation = new LogarithmicApproximation(chart1);
+                logarithmicApproximation = new LogarithmicApproximation(chart1);
 
                 if (logarithmicApproximation.Сalculation(ref tableData, lengthMas))
                 {
@@ -279,6 +283,41 @@ namespace approximations
             {
                 chart1.Series.Remove(series);
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ResultFunction resultFunction = new ResultFunction();
+
+            resultFunction.setLengthMas(lengthMas);
+            resultFunction.setTableData(this.tableData);
+
+            if (!(this.linearApproximation is null) && this.linearApproximation.isSolved && checkLinear.Checked)
+            {
+                resultFunction.setLinearResult(this.linearApproximation.getResultPoint());
+            }
+
+            if (!(this.powerApproximation is null) && this.powerApproximation.isSolved && checkPower.Checked)
+            {
+                resultFunction.setPowerResult(this.powerApproximation.getResultPoint());
+            }
+
+            if (!(this.exponentialApproximation is null) && this.exponentialApproximation.isSolved && checkExp.Checked)
+            {
+                resultFunction.setExpResult(this.exponentialApproximation.getResultPoint());
+            }
+
+            if (!(this.logarithmicApproximation is null) && this.logarithmicApproximation.isSolved && checkLog.Checked)
+            {
+                resultFunction.setLogResult(this.logarithmicApproximation.getResultPoint());
+            }
+
+            if (!(this.polinomApproximation is null) && this.polinomApproximation.isSolved && checkPolinom.Checked)
+            {
+                resultFunction.setPolinomResult(this.polinomApproximation.getResultPoint());
+            }
+
+            resultFunction.ShowDialog();
         }
     }
 }

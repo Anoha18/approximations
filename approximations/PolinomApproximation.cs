@@ -18,6 +18,7 @@ namespace approximations
         private int _power; // степень полинома
         public bool isSolved = false;
         private double _deviation;
+        private double[,] resultPoint;
 
         public PolinomApproximation(Chart chart, int power)
         {
@@ -174,6 +175,8 @@ namespace approximations
             }
         }
 
+        public ref double[,] getResultPoint() { return ref this.resultPoint; }
+
         private void DrawLineFunc(ref double[,] tableData, int lengthMas)
         {
             double[] Y = new double[lengthMas];
@@ -186,6 +189,14 @@ namespace approximations
                 {
                     Y[i] += this._koef[j] * Math.Pow(tableData[0, i], this._power - j - 1);
                 }
+            }
+
+            this.resultPoint = new double[2, lengthMas];
+
+            for (int i = 0; i < lengthMas; i++)
+            {
+                this.resultPoint[0, i] = X[i];
+                this.resultPoint[1, i] = Y[i];
             }
 
             bool isSeries = false;

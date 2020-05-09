@@ -16,6 +16,8 @@ namespace approximations
         private double _b;
         private Chart _chart;
         private double _deviation;
+        private double[,] resultPoint;
+        public bool isSolved = false;
 
         public LogarithmicApproximation(Chart chart)
         {
@@ -50,6 +52,7 @@ namespace approximations
 
             Standardeviation(lengthMas, ref tableData); // расчет среднего квадратического отклонения
             DrawLineFunc(this._a, this._b, lengthMas, ref tableData); // рисуем график с полученными результатами
+            this.isSolved = true;
 
             return true;
         }
@@ -59,6 +62,8 @@ namespace approximations
         public double getB() { return this._b; }
 
         public double getDeviation() { return this._deviation; }
+
+        public ref double[,] getResultPoint() { return ref this.resultPoint; }
 
         private void DrawLineFunc(double a, double b, int lengthMas, ref double[,] tableData)
         {
@@ -70,6 +75,14 @@ namespace approximations
             {
                 X[i] = tableData[0, i];
                 Y[i] = a + b * Math.Log(tableData[0, i]);
+            }
+
+            this.resultPoint = new double[2, lengthMas];
+
+            for (int i = 0; i < lengthMas; i++)
+            {
+                this.resultPoint[0, i] = X[i];
+                this.resultPoint[1, i] = Y[i];
             }
 
             bool isSeries = false;

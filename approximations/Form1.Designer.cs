@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -74,6 +74,7 @@
             this.checkPower = new System.Windows.Forms.CheckBox();
             this.checkLog = new System.Windows.Forms.CheckBox();
             this.checkPolinom = new System.Windows.Forms.CheckBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,9 +90,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 944);
+            this.button1.Location = new System.Drawing.Point(20, 908);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 53);
+            this.button1.Size = new System.Drawing.Size(163, 55);
             this.button1.TabIndex = 1;
             this.button1.Text = "Старт";
             this.button1.UseVisualStyleBackColor = true;
@@ -99,7 +101,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(207, 944);
+            this.button2.Location = new System.Drawing.Point(207, 910);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(163, 53);
             this.button2.TabIndex = 2;
@@ -109,13 +112,13 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(418, 12);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(1362, 985);
+            this.chart1.Size = new System.Drawing.Size(1362, 949);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";
             // 
@@ -265,7 +268,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 771);
+            this.button3.Location = new System.Drawing.Point(17, 771);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(137, 38);
             this.button3.TabIndex = 20;
@@ -275,7 +278,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(155, 771);
+            this.button4.Location = new System.Drawing.Point(160, 771);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(122, 38);
             this.button4.TabIndex = 21;
@@ -481,11 +484,24 @@
             this.checkPolinom.TabIndex = 43;
             this.checkPolinom.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(17, 834);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(166, 53);
+            this.button5.TabIndex = 44;
+            this.button5.Text = "Результаты полученных функций";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1792, 1009);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1792, 984);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.checkPolinom);
             this.Controls.Add(this.checkLog);
             this.Controls.Add(this.checkPower);
@@ -530,7 +546,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аппроксимация";
@@ -587,6 +602,7 @@
         private System.Windows.Forms.CheckBox checkPower;
         private System.Windows.Forms.CheckBox checkLog;
         private System.Windows.Forms.CheckBox checkPolinom;
+        private System.Windows.Forms.Button button5;
     }
 }
 
